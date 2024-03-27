@@ -1,4 +1,4 @@
-package com.example.myapplication.domain
+package com.example.myapplication.domain.ShortInfo
 
 class GetShortInfo() {
 
@@ -6,7 +6,7 @@ class GetShortInfo() {
      * latitude - широта
      * longitude - долгота
      */
-    fun getFromLocation(latitude: Double, longitude: Double) : ShortInfoModel{
+    fun getFromLocation(latitude: Double, longitude: Double) : ShortInfoModel {
         TODO()
     }
 
@@ -14,14 +14,14 @@ class GetShortInfo() {
     /**
      * name - наименование локации в которой необходимо узнать погоду
      */
-    fun getFromNameLocation(name: String) : ShortInfoModel{
+    fun getFromNameLocation(name: String) : ShortInfoModel {
         TODO()
     }
 
     /**
      * получение списка избранных мест с погодой
      */
-    fun getInfoInFavoritesLocation() : List<ShortInfoModel>{
+    fun getInfoInFavoritesLocation() : List<ShortInfoModel> {
         TODO()
     }
 

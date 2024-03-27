@@ -1,4 +1,4 @@
-package com.example.myapplication.domain
+package com.example.myapplication.domain.ShortInfo
 
 data class ShortInfoModel(
     val nameLocation: String,

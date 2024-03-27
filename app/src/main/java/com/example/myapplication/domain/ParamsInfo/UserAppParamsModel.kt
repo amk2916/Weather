@@ -1,6 +1,4 @@
-package com.example.myapplication.domain
-
-import org.intellij.lang.annotations.Language
+package com.example.myapplication.domain.ParamsInfo
 
 data class UserAppParamsModel(
     var measureTemperature: MeasureTemperature,
