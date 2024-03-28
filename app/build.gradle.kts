@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -16,6 +18,11 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        val  properties = Properties()
+        properties.load(project.rootProject.file("local.properties").inputStream())
+        resValue("string", "api_key",properties.getProperty("api_key", ""))
+
     }
 
     buildTypes {
