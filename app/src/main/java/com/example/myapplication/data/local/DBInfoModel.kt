@@ -19,7 +19,7 @@ data class DBInfoModel(
     @ColumnInfo("name_location")
     val nameLocation: String,
     var temperature: Int,
-    val info: String, //todo пока не придумал зачем это нужно
+   // val info: String, //todo пока не придумал зачем это нужно
     val sunrise_time: String,
     val sunset_time: String,
     val wind_speed: Int,
