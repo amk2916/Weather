@@ -1,5 +1,6 @@
 package com.example.myapplication.DI
 
+import com.example.myapplication.data.server.OpenWeatherService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -8,6 +9,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.create
 
 
 @Module
@@ -29,7 +31,7 @@ object ModuleForInternet {
 
 
     @Provides
-    fun providesRetorfitClient(client: OkHttpClient, baseUrl: String): Retrofit {
+    fun providesRetrofitClient(client: OkHttpClient, baseUrl: String): Retrofit {
         return Retrofit.Builder()
             .baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create())
@@ -37,8 +39,7 @@ object ModuleForInternet {
             .build()
     }
 
-
-
-
+    @Provides
+    fun providesOpenWeatherService(retrofit: Retrofit):OpenWeatherService = retrofit.create()
 
 }
