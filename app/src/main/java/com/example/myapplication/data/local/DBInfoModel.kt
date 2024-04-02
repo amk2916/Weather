@@ -15,19 +15,20 @@ import androidx.room.PrimaryKey
     ]
 )
 data class DBInfoModel(
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
+    val id: Long = -1,
     @ColumnInfo("name_location")
     val nameLocation: String,
-    var temperature: Int,
-   // val info: String, //todo пока не придумал зачем это нужно
+    val temperature: Int,
+   // val info: String,
     val sunrise_time: String,
     val sunset_time: String,
     val wind_speed: Int,
     val direction_of_the_wind: String,
     val humidity: Int,
-    val temperature_for_hour: Map<String, Int>, // <час, значение>
-    val temperature_for_week: Map<String, Int>,// <день недели, значение>
+    val temperature_for_hour: Int, // <час, значение>
+    val temperature_for_week: Int,// <день недели, значение>
     val update_time: String,
     val latitude: Double,
-    val longitude: Double,
+    val longitude: Double
 )

@@ -9,9 +9,10 @@ import androidx.room.RoomDatabase
         DBUserParam::class
     ],
     version = 1,
+    exportSchema = false
 )
 abstract class AppDataBase : RoomDatabase() {
     abstract fun getInfoDao(): InfoModelDao
-    abstract fun getParamDao(): UserParamDao
+ /*   abstract fun getParamDao(): UserParamDao*/
 
 }

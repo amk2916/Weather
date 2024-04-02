@@ -5,6 +5,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityComponent
+import dagger.hilt.android.scopes.ActivityScoped
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -14,7 +15,7 @@ import retrofit2.create
 
 @Module
 @InstallIn(ActivityComponent::class)
-object ModuleForInternet {
+class ModuleForInternet {
 
     @Provides
     fun providesBaseURL(): String = "https://api.open-meteo.com/"
@@ -40,6 +41,7 @@ object ModuleForInternet {
     }
 
     @Provides
+    @ActivityScoped
     fun providesOpenWeatherService(retrofit: Retrofit):OpenWeatherService = retrofit.create()
 
 }

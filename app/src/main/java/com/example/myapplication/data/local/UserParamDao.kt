@@ -12,6 +12,8 @@ interface UserParamDao {
     // todo по возможности избавиться от этого дела
     @Insert(onConflict = OnConflictStrategy.ABORT)
     fun createParams(model: DBUserParam) : Long
+
+
     @Query("select * from user_params limit 1")
     fun getAll() : DBUserParam
 

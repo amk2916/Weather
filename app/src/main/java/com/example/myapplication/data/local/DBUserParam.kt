@@ -7,9 +7,10 @@ import com.example.myapplication.domain.ParamsInfo.MeasureTemperature
 
 @Entity(tableName = "user_params")
 data class DBUserParam(
-    @PrimaryKey(autoGenerate = true) val id: Long?,
-    @ColumnInfo("measure_temperature") var measureTemperature: MeasureTemperature,
-    var notifications: Boolean,
-    var paramPosition: Boolean,
-    var language: String // может потом реализую, сейчас времени нет, всегда будет Русский
+    @PrimaryKey val id: Long = 1,
+    @ColumnInfo("measure_temperature")
+    var measureTemperature: MeasureTemperature = MeasureTemperature.CELSIUS,
+    var notifications: Boolean = false,
+    var paramGeoPosition: Boolean = false,
+    var language: String = "Русский" // может потом реализую, сейчас времени нет, всегда будет Русский
 )
