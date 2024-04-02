@@ -28,9 +28,7 @@ class DBModule {
     @Provides
     fun infoModelDao(db: AppDataBase): InfoModelDao = db.getInfoDao()
 
-/*
     @Provides
     fun userParamDao(db: AppDataBase): UserParamDao = db.getParamDao()
-*/
 
 }

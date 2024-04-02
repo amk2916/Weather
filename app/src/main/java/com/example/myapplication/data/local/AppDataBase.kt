@@ -13,6 +13,6 @@ import androidx.room.RoomDatabase
 )
 abstract class AppDataBase : RoomDatabase() {
     abstract fun getInfoDao(): InfoModelDao
- /*   abstract fun getParamDao(): UserParamDao*/
+    abstract fun getParamDao(): UserParamDao
 
 }

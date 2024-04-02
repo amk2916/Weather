@@ -7,7 +7,7 @@ import com.example.myapplication.domain.ParamsInfo.MeasureTemperature
 
 @Entity(tableName = "user_params")
 data class DBUserParam(
-    @PrimaryKey val id: Long = 1,
+    @PrimaryKey val id: Long = -1,
     @ColumnInfo("measure_temperature")
     var measureTemperature: MeasureTemperature = MeasureTemperature.CELSIUS,
     var notifications: Boolean = false,

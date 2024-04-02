@@ -10,7 +10,7 @@ import androidx.room.Update
 interface UserParamDao {
     // по идее idшник нафиг не нужен, там всегда одна запись
     // todo по возможности избавиться от этого дела
-    @Insert(onConflict = OnConflictStrategy.ABORT)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun createParams(model: DBUserParam) : Long
 
 

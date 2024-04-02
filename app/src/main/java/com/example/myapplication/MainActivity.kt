@@ -4,12 +4,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.example.myapplication.data.local.AppDataBase
+import com.example.myapplication.data.local.DBUserParam
 import com.example.myapplication.data.local.UserParamDao
 import com.example.myapplication.data.server.OpenWeatherService
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 import java.io.FileInputStream
 import java.util.Properties
@@ -29,10 +31,15 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
+
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
        // Log.e("key", applicationContext.getString(R.string.api_key))
 
+        CoroutineScope(Dispatchers.IO).launch {
+            paramsDao.createParams(DBUserParam())
+        }
         CoroutineScope(Dispatchers.IO).launch {
             val a = network.getInfoWeather(52.52f, 13.41f, 1)
             Log.e("MainActivity", a.toString())

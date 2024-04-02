@@ -17,12 +17,12 @@ interface InfoModelDao {
     fun getAll() : List<DBInfoModel>
 
     @Query("select * from short_info where name_location = :nameLocation")
-    suspend fun getModelFromName(nameLocation: String)
+    suspend fun getModelFromName(nameLocation: String) : DBInfoModel
 
     @Query("select * from short_info where latitude = :latitude and longitude = :longitude limit 1")
-    suspend fun getModelFromLocation(latitude: Double,  longitude: Double)
+    suspend fun getModelFromLocation(latitude: Double,  longitude: Double) : DBInfoModel
 
-    @Update
+    @Update(DBInfoModel::class)
     suspend fun updateValue(dbInfoModel: DBInfoModel)
 
     @Query("Delete from short_info where name_location = :nameLocation ")
